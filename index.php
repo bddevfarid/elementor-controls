@@ -1,3 +1,66 @@
+//Text Hide on Responsive Device
+@media (min-width:768px) and (max-width:1023px) {
+    .bdt-ep-image-expand-text {
+        &.bdt-tablet {
+            display: none;
+        }
+    }
+}
+@media (min-width:1024px) {
+    .bdt-ep-image-expand-text {
+        &.bdt-desktop {
+            display: none;
+        }
+    }
+}
+@media (max-width:767px) {
+    .bdt-ep-image-expand-text {
+        &.bdt-mobile {
+            display: none;
+        }
+    }
+}
+
+$this->add_control(
+			'text_hide_on',
+			[
+				'label'       => __('Text Hide On', 'bdthemes-element-pack') . BDTEP_NC,
+				'type'        => Controls_Manager::SELECT2,
+				'multiple'    => true,
+				'label_block' => false,
+				'options'     => [
+					'desktop' => __('Desktop', 'bdthemes-element-pack'),
+					'tablet'  => __('Tablet', 'bdthemes-element-pack'),
+					'mobile'  => __('Mobile', 'bdthemes-element-pack'),
+				],
+				'frontend_available' => true,
+				'condition' => [
+					'show_text' => 'yes'
+				]
+			]
+		);
+
+$text_hide_on_setup = '';
+		if (!empty($settings['text_hide_on'])) {
+			foreach ($settings['text_hide_on'] as $element) {
+
+				if ($element == 'desktop') {
+					$text_hide_on_setup .= ' bdt-desktop';
+				}
+				if ($element == 'tablet') {
+					$text_hide_on_setup .= ' bdt-tablet';
+				}
+				if ($element == 'mobile') {
+					$text_hide_on_setup .= ' bdt-mobile';
+				}
+			}
+		}
+
+<?php echo $text_hide_on_setup; ?>
+
+
+
+
 
 // Button Icon Position
 $this->add_control(
