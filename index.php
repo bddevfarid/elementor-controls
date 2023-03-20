@@ -158,3 +158,35 @@ public function get_style_depends() {
             ];
         }
     }
+
+$this->add_group_control(
+			Group_Control_Background::get_type(),
+			[
+				'name' => 'content_background',
+				'label' => esc_html__('Background', 'pixel-gallery'),
+				'types' => ['classic', 'gradient'],
+				'exclude' => ['image'],
+				'selector' => '{{WRAPPER}} .pg-plex-image-wrap:before',
+				'fields_options' => [
+					'background' => [
+						'label' => esc_html__('Overlay Color', 'pixel-gallery'),
+						'default' => 'gradient',
+					],
+					'color' => [
+						'default' => 'rgba(13, 59, 84, 0.8)',
+					],
+					'color_b' => [
+						'default' => '#00000000',
+					],
+					'gradient_type' => [
+						'default' => 'linear',
+					],
+					'gradient_angle' => [
+						'default' => [
+							'unit' => 'deg',
+							'size' => 5,
+						],
+					],
+				],
+			]
+		);
