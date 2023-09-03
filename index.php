@@ -22,39 +22,39 @@
 }
 
 $this->add_control(
-			'text_hide_on',
-			[
-				'label'       => __('Text Hide On', 'bdthemes-element-pack') . BDTEP_NC,
-				'type'        => Controls_Manager::SELECT2,
-				'multiple'    => true,
-				'label_block' => false,
-				'options'     => [
-					'desktop' => __('Desktop', 'bdthemes-element-pack'),
-					'tablet'  => __('Tablet', 'bdthemes-element-pack'),
-					'mobile'  => __('Mobile', 'bdthemes-element-pack'),
-				],
-				'frontend_available' => true,
-				'condition' => [
-					'show_text' => 'yes'
-				]
-			]
-		);
+	'text_hide_on',
+	[
+		'label'       => __('Text Hide On', 'bdthemes-element-pack') . BDTEP_NC,
+		'type'        => Controls_Manager::SELECT2,
+		'multiple'    => true,
+		'label_block' => false,
+		'options'     => [
+			'desktop' => __('Desktop', 'bdthemes-element-pack'),
+			'tablet'  => __('Tablet', 'bdthemes-element-pack'),
+			'mobile'  => __('Mobile', 'bdthemes-element-pack'),
+		],
+		'frontend_available' => true,
+		'condition' => [
+			'show_text' => 'yes'
+		]
+	]
+);
 
 $text_hide_on_setup = '';
-		if (!empty($settings['text_hide_on'])) {
-			foreach ($settings['text_hide_on'] as $element) {
+if (!empty($settings['text_hide_on'])) {
+	foreach ($settings['text_hide_on'] as $element) {
 
-				if ($element == 'desktop') {
-					$text_hide_on_setup .= ' bdt-desktop';
-				}
-				if ($element == 'tablet') {
-					$text_hide_on_setup .= ' bdt-tablet';
-				}
-				if ($element == 'mobile') {
-					$text_hide_on_setup .= ' bdt-mobile';
-				}
-			}
+		if ($element == 'desktop') {
+			$text_hide_on_setup .= ' bdt-desktop';
 		}
+		if ($element == 'tablet') {
+			$text_hide_on_setup .= ' bdt-tablet';
+		}
+		if ($element == 'mobile') {
+			$text_hide_on_setup .= ' bdt-mobile';
+		}
+	}
+}
 
 <?php echo $text_hide_on_setup; ?>
 
@@ -160,33 +160,33 @@ public function get_style_depends() {
     }
 
 $this->add_group_control(
-			Group_Control_Background::get_type(),
-			[
-				'name' => 'content_background',
-				'label' => esc_html__('Background', 'pixel-gallery'),
-				'types' => ['classic', 'gradient'],
-				'exclude' => ['image'],
-				'selector' => '{{WRAPPER}} .pg-plex-image-wrap:before',
-				'fields_options' => [
-					'background' => [
-						'label' => esc_html__('Overlay Color', 'pixel-gallery'),
-						'default' => 'gradient',
-					],
-					'color' => [
-						'default' => 'rgba(13, 59, 84, 0.8)',
-					],
-					'color_b' => [
-						'default' => '#00000000',
-					],
-					'gradient_type' => [
-						'default' => 'linear',
-					],
-					'gradient_angle' => [
-						'default' => [
-							'unit' => 'deg',
-							'size' => 5,
-						],
-					],
+	Group_Control_Background::get_type(),
+	[
+		'name' => 'content_background',
+		'label' => esc_html__('Background', 'pixel-gallery'),
+		'types' => ['classic', 'gradient'],
+		'exclude' => ['image'],
+		'selector' => '{{WRAPPER}} .pg-plex-image-wrap:before',
+		'fields_options' => [
+			'background' => [
+				'label' => esc_html__('Overlay Color', 'pixel-gallery'),
+				'default' => 'gradient',
+			],
+			'color' => [
+				'default' => 'rgba(13, 59, 84, 0.8)',
+			],
+			'color_b' => [
+				'default' => '#00000000',
+			],
+			'gradient_type' => [
+				'default' => 'linear',
+			],
+			'gradient_angle' => [
+				'default' => [
+					'unit' => 'deg',
+					'size' => 5,
 				],
-			]
-		);
+			],
+		],
+	]
+);
